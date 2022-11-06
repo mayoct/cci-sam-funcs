@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sam-dotnet6-app"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-qlu7k1schc0"
+s3_prefix = "sam-dotnet6-app"
+region = "ap-northeast-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["HelloWorldFunction=709967797311.dkr.ecr.ap-northeast-1.amazonaws.com/samdotnet6appcc19202c/helloworldfunction19d43fc4repo"]
