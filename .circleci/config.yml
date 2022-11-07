@@ -25,4 +25,4 @@ workflows:
           mapping: |
             sam-dotnet6-app/.*  run-build_test_deploy-sam-dotnet6-app true
           requires:
-            - aplit-config/generate-config
+            - split-config/generate-config
