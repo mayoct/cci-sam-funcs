@@ -1,0 +1,28 @@
+version: 2.1
+
+setup: true
+
+orbs:
+  split-config: bufferings/split-config@0.1.0
+  path-filtering: circleci/path-filtering@0.1.3
+
+workflows:
+  generate-config:
+    jobs:
+      - split-config/generate-config:
+          fixed-config-paths: |
+            ./sam-dotnet6-app/.circleci/config.yml
+          generated-config-path: /tmp/generated_config.yml
+          continuation: false
+          post-steps:
+            - persist_to_workspace:
+                root: /tmp
+                paths:
+                  - generated_config.yml
+      - path-filtering/filter:
+          workspace_path: /tmp
+          config-path: /tmp/generated_config.yml
+          mapping: |
+            sam-dotnet6-app/.*  run-build_test_deploy-sam-dotnet6-app true
+          requires:
+            - aplit-config/generate-config
