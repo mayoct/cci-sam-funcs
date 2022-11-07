@@ -17,8 +17,7 @@ jobs:
     resource_class: arm.medium
     steps:
       - checkout
-      - aws-cli/setup:
-          role-arn: arn:aws:iam::483285841698:role/mshk-sam-role
+      - aws-cli/setup
       - run:
           name: AWS SAM installation
           command: pip install aws-sam-cli
