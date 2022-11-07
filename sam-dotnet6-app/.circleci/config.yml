@@ -37,5 +37,4 @@ workflows:
   sam-java-app-workflow:
     when: << pipeline.parameters.run-build_test_deploy-sam-dotnet6-app >>
     jobs:
-      - build_test_deploy-sam-dotnet6-app:
-          context: oidc-aws
+      - build_test_deploy-sam-dotnet6-app
