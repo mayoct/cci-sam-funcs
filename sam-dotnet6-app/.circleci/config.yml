@@ -20,7 +20,10 @@ jobs:
       - aws-cli/setup
       - run:
           name: AWS SAM installation
-          command: pip install aws-sam-cli
+          command: |
+            sudo apt update
+            sudo apt install python-is-python3 
+            pip install aws-sam-cli
       - aws-sam/build:
           template:  sam-dotnet6-app/template.yaml
       - run:
